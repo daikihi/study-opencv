@@ -1,7 +1,8 @@
 import cv2
 
 # load from disk
-original_image = cv2.imread('test-001.jpeg')
+original_image = cv2.imread('ocr_test/private_sample02.jpg')
+# original_image = cv2.imread('test-001.jpeg')
 
 # convert to gray color image from original image
 gray_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
