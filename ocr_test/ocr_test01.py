@@ -42,6 +42,7 @@ def remove_after_characters(text):
     import re
     modified_text = re.sub(r'\(.*', '', text)
     modified_text = re.sub(r'\[.*', '', modified_text)
+    modified_text = re.sub(r'\=.*', '', modified_text)
     return modified_text
 
 #  ここより下がMain 関数に当たる、最初に実行される場所
