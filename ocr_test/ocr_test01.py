@@ -37,6 +37,12 @@ def remove_blank_lines(text):
     non_empty_lines = [line for line in lines if line.strip() != '']
     return '\n'.join(non_empty_lines)
 
+# 文字列から (　や [ の後ろの文字列を削除した
+def remove_after_characters(text):
+    import re
+    modified_text = re.sub(r'\(.*', '', text)
+    modified_text = re.sub(r'\[.*', '', modified_text)
+    return modified_text
 
 #  ここより下がMain 関数に当たる、最初に実行される場所
 image, template = load_from_file() # イメージファイルを取得する 
@@ -65,6 +71,9 @@ from string import digits
 table = str.maketrans("", "", digits)
 non_digits_text = text.translate(table)
 non_empty_lines = remove_blank_lines(non_digits_text)
+removed_texts = remove_after_characters(non_empty_lines)
+non_empty_lines = remove_blank_lines(removed_texts)
+
 
 print("Extracted Text:")
 print(non_empty_lines)
