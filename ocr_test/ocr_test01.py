@@ -59,11 +59,6 @@ template_height, template_width = template.shape[:2] # template 画像の大き�
 for pt in zip(*locations[::-1]):
     cv2.rectangle(image, pt, (pt[0] + template_width, pt[1] + template_height), (255, 255, 255), -1)
 
-# cv2.imshow('Detected', image)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-
-
 # Tesseractで画像からテキストを抽出
 text = pytesseract.image_to_string(image, lang='jpn')
 
